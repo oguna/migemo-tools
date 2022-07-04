@@ -27,7 +27,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    fetch('migemo-compact-dict')
+    fetch('/migemo-tools/migemo-compact-dict')
     .then(e => e.arrayBuffer())
     .then(e => {
         const dict = new CompactDictionary(e)

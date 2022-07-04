@@ -8,7 +8,7 @@ import Benchmark from './views/Benchmark.vue'
 import GenRegex from './views/GenRegex.vue'
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHashHistory('/migemo-tools/'),
     routes: [
     { path: '/', component: Home},
     { path: '/gen-dict', component: GenDict},
