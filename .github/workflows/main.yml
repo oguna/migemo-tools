@@ -25,7 +25,10 @@ jobs:
           node-version: '16.x'
 
       - name: Build
-        run: npm install & npm run build
+        run: npm install && npm run build
+
+      - name: Fix Path
+        run: sed -i -e "s|/assets/|./assets/|g" dist/index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
