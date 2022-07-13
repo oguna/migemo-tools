@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "jsmigemo": "^0.4.2",
+    "pinia": "^2.0.16",
     "vue": "^3.2.25",
     "vue-router": "^4.1.2"
   },

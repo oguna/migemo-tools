@@ -1,17 +1,17 @@
 <template>
-辞書を生成します。
-<p>
-  「見出し」に続いて空白の後、「単語」を1行で入力して下さい。
-  1つの見出しに複数の単語がある場合、単語同士を空白で区切って下さい。
-  1行につき1見出しを入力して下さい。
-</p>
-<br />
-<textarea v-model="query" rows="10" style="width: 100%"></textarea>
-<br />
-<button @click="start">生成</button>
-<button @click="download">ダウンロード</button>
-<br />
-{{result}}
+  辞書を生成します。
+  <p>
+    「見出し」に続いて空白の後、「単語」を1行で入力して下さい。
+    1つの見出しに複数の単語がある場合、単語同士を空白で区切って下さい。
+    1行につき1見出しを入力して下さい。
+  </p>
+  <br />
+  <textarea v-model="query" rows="10" style="width: 100%"></textarea>
+  <br />
+  <button @click="start">生成</button>
+  <button @click="download">ダウンロード</button>
+  <br />
+  {{ result }}
 </template>
 
 <script lang="ts">
@@ -19,9 +19,9 @@ import { defineComponent, markRaw } from 'vue'
 import { CompactDictionaryBuilder, Migemo } from 'jsmigemo'
 
 export default defineComponent({
-  data () {
+  data() {
     return {
-        query: `あいちけん 愛知県
+      query: `あいちけん 愛知県
 あおもりけん 青森県
 あきたけん 秋田県
 いしかわけん 石川県
@@ -32,9 +32,9 @@ export default defineComponent({
 おおさかふ 大阪府
 おかやまけん 岡山県
 おきなわけん 沖縄県`,
-        result: "",
-        migemo: null as null|Migemo,
-        generatedDict: null as null|ArrayBuffer
+      result: "",
+      migemo: null as null | Migemo,
+      generatedDict: null as null | ArrayBuffer
     }
   },
   methods: {
@@ -56,15 +56,15 @@ export default defineComponent({
       this.generatedDict = ab
     },
     download() {
-      const blob = new Blob([this.generatedDict!], {"type": "application/octet-stream"})
-        const url = URL.createObjectURL(blob)
-        const a = document.createElement('a')
-        a.download = 'migemo-compact-dict'
-        a.href = url
-        a.target = "_blank"
-        a.click()
-        a.remove()
-        URL.revokeObjectURL(url)
+      const blob = new Blob([this.generatedDict!], { "type": "application/octet-stream" })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.download = 'migemo-compact-dict'
+      a.href = url
+      a.target = "_blank"
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
     }
   }
 })

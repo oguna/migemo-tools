@@ -1,44 +1,43 @@
 <template>
-Migemoの実行に便利なツールをウェブ上で提供します。
-任意の辞書をアップロードしてMigemo検索を試せます。
-<br />
-<input type="file" @change="onChange" />
-<br />
-Migemo検索おためし
-<input type="text" v-model="query" />
-<br />
-{{result}}
+  Migemoの実行に便利なツールをウェブ上で提供します。
+  任意の辞書をアップロードしてMigemo検索を試せます。
+  <br />
+  <input type="file" @change="onChange" />
+  <br />
+  Migemo検索おためし
+  <input type="text" v-model="query" />
+  <br />
+  {{ result }}
 </template>
 
 <script lang="ts">
 import { defineComponent, markRaw } from 'vue'
-import { Migemo,CompactDictionary } from 'jsmigemo'
+import { Migemo, CompactDictionary } from 'jsmigemo'
+import { useMainStore } from '../store'
+import { mapState, mapStores } from 'pinia'
 
 export default defineComponent({
-  data () {
+  data() {
     return {
-        query: "",
-        result: "loading..",
-        migemo: null as null|Migemo,
+      query: "",
+      result: "loading..",
+      migemo: null as null | Migemo,
     }
   },
   mounted() {
-    fetch('/migemo-tools/migemo-compact-dict')
-    .then(e => e.arrayBuffer())
-    .then(e => {
-        const dict = new CompactDictionary(e)
-        const migemo = new Migemo()
-        migemo.setDict(dict)
-        this.migemo = markRaw(migemo)
-        this.result = ""
-    })
+    this.migemo = new Migemo()
+    this.result = ""
+  },
+  computed: {
+    ...mapStores(useMainStore, ["dict"]),
   },
   watch: {
     query(e) {
-        if (this.migemo) {
-            const regex = this.migemo.query(this.query)
-            this.result = regex
-        }
+      this.migemo?.setDict(this.mainStore.dict as CompactDictionary)
+      if (this.migemo) {
+        const regex = this.migemo.query(this.query)
+        this.result = regex
+      }
     }
   },
   methods: {
