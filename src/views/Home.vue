@@ -5,7 +5,7 @@
   <input type="file" @change="onChange" />
   <br />
   Migemo検索おためし
-  <input type="text" v-model="query" />
+  <input data-test="query" type="text" v-model="query" />
   <br />
   {{ result }}
 </template>
