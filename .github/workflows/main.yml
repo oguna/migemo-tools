@@ -24,8 +24,14 @@ jobs:
         with:
           node-version: '16.x'
 
+      - name: Install
+        run: npm install
+
+      - name: Test
+        run: npm run test
+
       - name: Build
-        run: npm install && npm run build
+        run: npm run build
 
       - name: Fix Path
         run: sed -i -e "s|/assets/|./assets/|g" dist/index.html
