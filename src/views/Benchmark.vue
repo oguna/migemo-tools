@@ -8,7 +8,7 @@
   <br />
   繰り返し回数<input type="number" v-model="repeat" />
   <br />
-  <button @click="start">開始</button>
+  <button data-test="start" @click="start">開始</button>
   <br />
   {{ result }}
 </template>

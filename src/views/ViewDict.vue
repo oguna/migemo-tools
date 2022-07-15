@@ -2,8 +2,8 @@
   辞書を閲覧します。
   <br />
   <input type="text" v-model="query" />
-  <button @click="start">検索</button>
-  <button @click="reverseSearch">逆引き</button>
+  <button data-test="search" @click="start">検索</button>
+  <button data-test="reverse-search" @click="reverseSearch">逆引き</button>
   <br />
   {{ hits }}件の一致した単語が見つかりました<br />
   {{ result }}

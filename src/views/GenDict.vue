@@ -8,8 +8,8 @@
   <br />
   <textarea v-model="query" rows="10" style="width: 100%"></textarea>
   <br />
-  <button @click="start">生成</button>
-  <button @click="download">ダウンロード</button>
+  <button data-test="start" @click="start">生成</button>
+  <button data-test="download" @click="download">ダウンロード</button>
   <br />
   {{ result }}
 </template>

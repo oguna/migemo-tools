@@ -4,7 +4,7 @@
   <textarea v-model="text" rows="10" style="width: 100%"></textarea>
   <br />
   {{ info }}
-  <button @click="start">生成</button>
+  <button data-test="start" @click="start">生成</button>
   <button @click="download">ダウンロード</button>
 </template>
 
