@@ -19,10 +19,10 @@
     "@pinia/testing": "^0.0.12",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vue/test-utils": "^2.0.2",
-    "happy-dom": "^6.0.3",
+    "happy-dom": "^6.0.4",
     "typescript": "^4.5.4",
     "vite": "^3.0.0",
-    "vitest": "^0.18.0",
-    "vue-tsc": "^0.38.5"
+    "vitest": "^0.18.1",
+    "vue-tsc": "^0.38.8"
   }
 }
