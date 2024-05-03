@@ -21,7 +21,7 @@ export default defineComponent({
   },
   methods: {
     start() {
-      const regexgen = new TernaryRegexGenerator("|", "(", ")", "[", "]", "")
+      const regexgen = TernaryRegexGenerator.getDEFAULT()
       const lines = this.query.split("\n")
       for (const line of lines) {
         regexgen.add(line.trim())
