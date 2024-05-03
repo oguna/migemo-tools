@@ -1,5 +1,7 @@
 # Migemo Tools
 
+[![GitHub Pages](https://github.com/oguna/migemo-tools/actions/workflows/main.yml/badge.svg)](https://github.com/oguna/migemo-tools/actions/workflows/main.yml)
+
 Utility Tools for Compact Migemo
 
 ## 辞書の生成
